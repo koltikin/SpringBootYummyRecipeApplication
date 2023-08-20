@@ -1,19 +1,17 @@
 package com.cydeo.config;
 
-import com.github.javafaker.Faker;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Random;
-
-@Data // should use @Data otherwise does not work;
+    @Getter
+    @Setter
     @Configuration
     @ConfigurationProperties(prefix = "author")// prefix must be lowercase
 
     public class AuthorConfigData {
-        private String Name; // private String AuthorName dot allowed, should be the same after prefix
+        private String Name; // private String AuthorName Not allowed, should be the same after prefix
         private String Email;
         private String url;
 
@@ -23,13 +21,4 @@ import java.util.Random;
                     "Author Url = " + this.getUrl() + "\n";
         }
 
-        @Bean
-        public Faker getFaker(){
-            return new Faker();
-        }
-
-        @Bean
-        public Random getRandom(){
-            return new Random();
-        }
     }

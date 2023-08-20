@@ -48,7 +48,7 @@ public class RecipeServiceImpl implements RecipeService {
         var id = myRandom.nextInt(500);
         var recipeName = faker.food().dish();
         var duration = myRandom.nextInt(15)+25;
-        var preparation = "some instructions to how to prepare";
+        var preparation = faker.lorem().paragraph(myRandom.nextInt(5)+3);
         var ingredientsList = getListOfIngredients();
         List<RecipeType> recipeTypes = Arrays.asList(RecipeType.values());
         var recipeType = recipeTypes.get(myRandom.nextInt(recipeTypes.size()));
